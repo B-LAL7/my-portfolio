@@ -1,41 +1,156 @@
+/* إعدادات الصفحة كلها */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0f172a;
+
+  /* خلفية شكلها دخان متحرك (هشرحها تحت) */
+  background: #f5f7fa;
+
+  color: #1b2b34;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* طبقة الدخان المتحرك فوق الخلفية */
+body::before {
+  content: "";
+
+  /* نخليها تغطي الشاشة كلها */
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+
+  /* ألوان دخان ناعمة جدًا */
+  background:
+    radial-gradient(circle at 20% 30%, rgba(168, 237, 234, 0.6), transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(254, 214, 227, 0.6), transparent 45%),
+    radial-gradient(circle at 40% 80%, rgba(194, 233, 251, 0.6), transparent 50%);
+
+  /* بيخلي الألوان ناعمة كأنها دخان */
+  filter: blur(60px);
+
+  opacity: 0.9;
+
+  /* حركة الدخان */
+  animation: smokeMove 20s ease-in-out infinite;
+
+  z-index: -1;
+}
+
+/* حركة الدخان يمين وشمال */
+@keyframes smokeMove {
+  0% { transform: translate(0%, 0%) scale(1); }
+  50% { transform: translate(-5%, 5%) scale(1.1); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+/* الهيدر */
+header {
+  text-align: center;
+  padding: 70px 20px;
+}
+
+/* الناف بار */
+nav {
+  text-align: center;
+  padding: 14px;
+
+  /* شفافية عشان تبان الخلفية */
+  background: rgba(255,255,255,0.4);
+
+  /* بيعمل Blur حلو */
+  backdrop-filter: blur(10px);
+
+  /* يخليه ثابت فوق */
+  position: sticky;
+  top: 0;
+}
+
+/* لينكات الناف */
+nav a {
+  margin: 0 14px;
+  text-decoration: none;
+  color: #1b2b34;
+}
+
+/* أي سكشن */
+section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+/* الكونتينر بتاع المشاريع */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* كروت المشاريع */
+.box {
+  width: 180px;
+  margin: 12px;
+  padding: 20px;
+
+  background: white;
+  border-radius: 16px;
+
+  /* حدود خفيفة */
+  border: 1px solid rgba(0,0,0,0.05);
+
+  transition: 0.3s;
+}
+
+/* لما تحط الماوس */
+.box:hover {
+  transform: translateY(-8px);
+
+  /* ظل خفيف */
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+/* زر الإيميل */
+.email-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  margin-top: 10px;
+
+  background: #6C9A8B;
+  color: white;
+
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* زرار الدارك مود */
+#toggleMode {
+  margin: 15px;
+  padding: 10px 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #6C9A8B;
+  color: white;
+
+  cursor: pointer;
+}
+
+/* الدارك مود */
+body.dark {
+  background: #0f1720;
   color: white;
 }
 
-header {
-  text-align: center;
-  padding: 60px 20px;
-  background: #111827;
+/* الناف في الدارك */
+body.dark nav {
+  background: rgba(0,0,0,0.3);
 }
 
-header span {
-  color: #38bdf8;
-}
-
-section {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.about p {
-  color: #cbd5e1;
-}
-
-.projects .box {
-  display: inline-block;
-  background: #1e293b;
-  padding: 15px;
-  margin: 10px;
-  border-radius: 10px;
-  width: 150px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #111827;
-  margin-top: 30px;
+/* الكروت في الدارك */
+body.dark .box {
+  background: #1e2a38;
+  color: white;
 }

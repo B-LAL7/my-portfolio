@@ -2,39 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
 
+  <!-- بيظبط شكل الموقع على الموبايل -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Portfolio</title>
+
+  <!-- ربط ملف التصميم -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <header>
-    <h1>Hi, I'm <span>Front-End Developer</span></h1>
-    <p>Building simple and clean websites</p>
+    <!-- زرار بيحول بين الدارك واللايت -->
+    <button id="toggleMode">Dark Mode</button>
+
+    <!-- اسمك أو وظيفتك -->
+    <h1>Hi, I'm <span id="name">Front-End Developer</span></h1>
+
+    <!-- وصف بسيط -->
+    <p>Building clean and modern websites</p>
   </header>
 
-  <section class="about">
+  <!-- الناف بار اللي بينقلك بين أجزاء الصفحة -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- قسم عنك -->
+  <section id="about">
     <h2>About Me</h2>
+
+    <!-- نبذة عنك -->
     <p>I am a beginner Front-End Developer learning HTML, CSS and JavaScript.</p>
   </section>
 
-  <section class="projects">
+  <!-- قسم المشاريع -->
+  <section id="projects">
     <h2>Projects</h2>
-    <div class="box">Landing Page</div>
-    <div class="box">Portfolio Website</div>
+
+    <!-- هنا بنحط المشاريع في شكل كروت -->
+    <div class="container">
+
+      <!-- كارت مشروع -->
+      <div class="box">Landing Page</div>
+
+      <!-- كارت مشروع تاني -->
+      <div class="box">Portfolio Website</div>
+
+    </div>
   </section>
 
-  <footer>
+  <!-- الفوتر (آخر الصفحة) -->
+  <footer id="contact">
     <h2>Contact Me</h2>
-<p>Email:blal.abdelnabi@gmail.com</p>
 
-<a href="mailto:blal.abdelnabi@gmail.com">Send Email</a>
+    <!-- الإيميل -->
+    <p>Email: blal.abdelnabi@gmail.com</p>
+
+    <!-- زرار يفتح الإيميل -->
+    <a href="mailto: blal.abdelnabi @gmail.com" class="email-btn">
+      Send Email
+    </a>
   </footer>
 
-  
-<!-- كل حاجة -->
-<script src="script.js"></script>
+  <!-- ربط الجافاسكربت -->
+  <script src="script.js"></script>
 </body>
-
 </html>

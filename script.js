@@ -1,32 +1,32 @@
-// تغيير لون اسمك لما تضغط عليه
-const title = document.querySelector("header h1 span");
+// بنجيب زرار الدارك مود
+const toggleBtn = document.querySelector("#toggleMode");
 
-title.addEventListener("click", () => {
-  title.style.color = "tomato";
-  title.innerText = "Front-End Dev 🚀";
+// بنجيب الاسم
+const name = document.querySelector("#name");
+
+/* لما تدوس على الاسم */
+name.addEventListener("click", () => {
+
+  // بنغير شكل الاسم
+  const isActive = name.classList.toggle("active");
+
+  // بنغير النص
+  name.innerText = isActive
+    ? "Front-End Dev"
+    : "Front-End Developer";
 });
 
+/* لما تدوس على زرار الدارك */
+toggleBtn.addEventListener("click", () => {
 
-// رسالة ترحيب أول ما الصفحة تفتح
-window.onload = () => {
-  alert("Welcome to my Portfolio!");
-};
+  // بنضيف أو نشيل كلاس dark
+  document.body.classList.toggle("dark");
 
-
-// تأثير بسيط على البوكسات
-const boxes = document.querySelectorAll(".box");
-
-boxes.forEach(box => {
-  box.addEventListener("mouseover", () => {
-    box.style.transform = "scale(1.1)";
-    box.style.transition = "0.3s";
-    box.style.backgroundColor = "#ddd";
-  });
-
-  box.addEventListener("mouseout", () => {
-    box.style.transform = "scale(1)";
-    box.style.backgroundColor = "white";
-  });
+  // بنغير اسم الزرار حسب الوضع
+  toggleBtn.innerText = document.body.classList.contains("dark")
+    ? "Light Mode"
+    : "Dark Mode";
 });
 
-    
+/* رسالة بس في الكونسول للتجربة */
+console.log("Portfolio Loaded");
